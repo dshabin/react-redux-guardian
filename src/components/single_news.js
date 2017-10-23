@@ -15,7 +15,6 @@ class SingleNews extends Component{
   }
 
   render (){
-
     if (!this.props.single_news){
       return (<p>loading...</p>)
     }
@@ -31,6 +30,5 @@ class SingleNews extends Component{
 function mapStateToProps( state , ownProps){
   return { single_news : state[ownProps.match.params[0]]}
 }
-
 
 export default connect(mapStateToProps,{fetchOneArticle , pinToBoard})(SingleNews);

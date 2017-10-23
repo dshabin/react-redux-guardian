@@ -13,9 +13,7 @@ class PinBoard extends Component {
         </div>
       )
     })
-
   }
-
 
   render(){
     return (

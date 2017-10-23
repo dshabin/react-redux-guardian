@@ -12,8 +12,8 @@ import SingleNews from './components/single_news';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
-
 ReactDOM.render(
+
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
     <div>
@@ -24,8 +24,6 @@ ReactDOM.render(
     </div>
     </BrowserRouter>
   </Provider>
-
-
 
   , document.getElementById('root'));
 registerServiceWorker();

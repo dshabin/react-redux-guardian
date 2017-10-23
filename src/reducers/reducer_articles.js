@@ -11,12 +11,6 @@ export default function (state = {} , action){
       return { ...state , ['news'] : results}
 
     case FETCH_ONE_ARTICLE:
-      //const news = action.payload.data.response.content
-      //take all my current posts that i have
-      //ES5
-      //const newState =  { ...state   };
-      //newState[post.id] = post;
-      //return newState
       return { ...state , [action.payload.data.response.content.id]:action.payload.data.response.content }
 
     case PIN_TO_BOARD:
