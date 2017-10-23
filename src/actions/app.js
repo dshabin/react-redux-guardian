@@ -11,8 +11,13 @@ const API_KEY = "3811404c-4fff-44c6-b717-46c36d3e15ca"
 const URL_PARAMS = "&show-fields=thumbnail,headline&page="
 let page = 1
 
-export function fetchArticles(){
-  page = page + 1
+export function fetchArticles(page1){
+  if(!page1){
+    page = 1
+  }else{
+    page = page + 1
+  }
+
   const request = axios.get(`${SEARCH_ROOT_URL}${API_KEY}${URL_PARAMS}${page}`);
   return {
     type : FETCH_ARTICLES,

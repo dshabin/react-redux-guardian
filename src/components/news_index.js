@@ -8,6 +8,8 @@ import PinBoard from './pin_board'
 
 class NewsIndex extends Component {
 
+
+
   componentDidMount(){
     const context = this
     window.addEventListener('scroll', this.handleOnScroll.bind(context));
@@ -24,15 +26,19 @@ class NewsIndex extends Component {
     const scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
     const scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
     const clientHeight = document.documentElement.clientHeight || window.innerHeight;
-    const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
+    const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight -200;
+
     if (scrolledToBottom) {
-      this.props.fetchArticles()
+      this.props.fetchArticles(true)
     }
   }
 
 
   renderArticles(){
+
+
     //get an object and make it an array
+
     return _.map(this.props.news , q => {
       return(
         <div key={q.id}>
