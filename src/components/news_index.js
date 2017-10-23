@@ -3,14 +3,19 @@ import { connect } from 'react-redux';
 import {fetchArticles} from '../actions/app';
 import _ from 'lodash';
 import { Link } from "react-router-dom";
-
+import PinBoard from './pin_board'
 
 
 class NewsIndex extends Component {
 
+
+
+
+
   componentDidMount(){
-    this.props.fetchArticles(1)
+    setInterval( () => this.props.fetchArticles(1), 5000 );
   }
+
 
   renderArticles(){
     //get an object and make it an array
@@ -29,6 +34,7 @@ class NewsIndex extends Component {
   render(){
     return(
       <div>
+        <PinBoard/>
         {this.renderArticles()}
       </div>
     )

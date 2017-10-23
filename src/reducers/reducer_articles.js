@@ -25,7 +25,7 @@ export default function (state = {} , action){
         state.pins={}
       }
       let pins = { ...state.pins }
-      pins[id] = true
+      pins[id] = id
       return { ...state , ['pins']:pins }
 
     default:

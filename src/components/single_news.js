@@ -29,7 +29,6 @@ class SingleNews extends Component{
 }
 
 function mapStateToProps( state , ownProps){
-  console.log(state)
   return { single_news : state[ownProps.match.params[0]]}
 }
 
