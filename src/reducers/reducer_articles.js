@@ -1,6 +1,8 @@
 import { FETCH_ARTICLES,FETCH_ONE_ARTICLE , PIN_TO_BOARD } from '../actions/app';
 import _ from 'lodash'
 
+
+
 export default function (state = {} , action){
 
   switch (action.type){
@@ -18,7 +20,13 @@ export default function (state = {} , action){
       return { ...state , [action.payload.data.response.content.id]:action.payload.data.response.content }
 
     case PIN_TO_BOARD:
-      return { ...state , [action.payload]: true }
+      const id = action.payload
+      if (!state.pins){
+        state.pins=[]
+      }
+      let pins = [...state.pins]
+      pins.push(id)
+      return { ...state , ['pins']:pins }
 
     default:
       return state

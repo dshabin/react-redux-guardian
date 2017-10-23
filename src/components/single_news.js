@@ -19,7 +19,6 @@ class SingleNews extends Component{
     if (!this.props.single_news){
       return (<p>loading...</p>)
     }
-    console.log(this.props.single_news)
     return(
       <div>
       <button onClick={this.pinOnClickHandler.bind(this)}>pin</button>
@@ -29,9 +28,9 @@ class SingleNews extends Component{
   }
 }
 
-function mapStateToProps( news , ownProps){
-  console.log(news)
-  return { single_news : news[ownProps.match.params[0]]}
+function mapStateToProps( state , ownProps){
+  console.log(state)
+  return { single_news : state[ownProps.match.params[0]]}
 }
 
 
