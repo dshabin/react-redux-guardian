@@ -1,7 +1,5 @@
 import { FETCH_ARTICLES,FETCH_ONE_ARTICLE , PIN_TO_BOARD } from '../actions/app';
 
-
-
 function removeDuplicates(myArr, prop) {
     return myArr.filter((obj, pos, arr) => {
       return arr.map(mapObj => mapObj[prop]).indexOf(obj[prop]) === pos;
@@ -15,21 +13,17 @@ export default function (state = {} , action){
       //const results = _.mapKeys(action.payload.data.response.results, 'id');
       let old = []
       const results = action.payload.data.response.results
-
       if (!state.news){
         old= []
       }else{
         old = [...state.news]
       }
-      //Object.assign( results , old)
       results.map(elem => {
         {
           old.push(elem)
         }
       })
-
       old = removeDuplicates(old ,'id')
-
       return { ...state , ['news'] : old}
 
     case FETCH_ONE_ARTICLE:

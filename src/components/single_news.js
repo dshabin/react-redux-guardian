@@ -20,7 +20,7 @@ class SingleNews extends Component{
     }
     return(
       <div>
-      <button onClick={this.pinOnClickHandler.bind(this)}>pin</button>
+      <button type="button" class="btn btn-primary" onClick={this.pinOnClickHandler.bind(this)}>pin</button>
       <p>{this.props.single_news.fields.bodyText}</p>
       </div>
     )

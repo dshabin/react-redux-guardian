@@ -5,10 +5,7 @@ import _ from 'lodash';
 import { Link } from "react-router-dom";
 import PinBoard from './pin_board'
 
-
 class NewsIndex extends Component {
-
-
 
   componentDidMount(){
     const context = this
@@ -26,28 +23,26 @@ class NewsIndex extends Component {
     const scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
     const scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
     const clientHeight = document.documentElement.clientHeight || window.innerHeight;
-    const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight -200;
+    const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight - 200;
 
     if (scrolledToBottom) {
       this.props.fetchArticles(true)
     }
   }
 
-
   renderArticles(){
-
-
     //get an object and make it an array
-
     return _.map(this.props.news , q => {
       return(
         <div key={q.id}>
         <Link to={`/single-news/${q.id}`} >
-        {q.fields.headline}
+        <h1>{q.fields.headline}</h1>
         </Link>
-          <h6>{q.sectionName}</h6>
-          <img src={q.fields.thumbnail} className="img-rounded" alt="" width="100" height="100"/>
+          <h2>{q.sectionName}</h2>
+          <img src={q.fields.thumbnail} class="img-responsive" alt="" />
+          <hr/>
         </div>
+
       )
     })
   }
