@@ -22,10 +22,10 @@ export default function (state = {} , action){
     case PIN_TO_BOARD:
       const id = action.payload
       if (!state.pins){
-        state.pins=[]
+        state.pins={}
       }
-      let pins = [...state.pins]
-      pins.push(id)
+      let pins = { ...state.pins }
+      pins[id] = true
       return { ...state , ['pins']:pins }
 
     default:
