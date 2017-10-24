@@ -39,10 +39,9 @@ class NewsIndex extends Component {
         <h1>{q.fields.headline}</h1>
         </Link>
           <h2>{q.sectionName}</h2>
-          <img src={q.fields.thumbnail} class="img-responsive" alt="" />
+          <img src={q.fields.thumbnail} className="img-responsive" alt="" />
           <hr/>
         </div>
-
       )
     })
   }
@@ -51,6 +50,7 @@ class NewsIndex extends Component {
     return(
       <div>
         <PinBoard/>
+        <hr/>
         {this.renderArticles()}
       </div>
     )
