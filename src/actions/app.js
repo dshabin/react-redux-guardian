@@ -12,7 +12,7 @@ const URL_PARAMS = "&show-fields=thumbnail,headline&page="
 let page = 1
 
 export function fetchArticles(page1){
-  (!page1) ? page = 1 : page = page + 1
+  (!page1) ? page = 1 : page = page + 1 // if not page1 then this is a fetch from time interval , no need to add page
   const request = axios.get(`${SEARCH_ROOT_URL}${API_KEY}${URL_PARAMS}${page}`);
   return {
     type : FETCH_ARTICLES,

@@ -16,7 +16,7 @@ export default function (state = {} , action){
       (!state.news) ?   old = [] : old = [...state.news]
       results.map(elem =>old.push(elem))
       const newNews = removeDuplicates(old ,'id')
-      return { ...state , ['news'] : newNews}
+      return { ...state , 'news' : newNews}
 
     case FETCH_ONE_ARTICLE:
       return { ...state , [action.payload.data.response.content.id]:action.payload.data.response.content }
@@ -25,7 +25,7 @@ export default function (state = {} , action){
       let pins = {};
       (!state.pins) ? pins={} : pins = { ...state.pins } ;
       pins[action.payload] = action.payload
-      return { ...state , ['pins']:pins }
+      return { ...state , 'pins':pins }
 
     default:
       return state

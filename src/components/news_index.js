@@ -20,12 +20,7 @@ class NewsIndex extends Component {
 
   handleOnScroll() {
     // http://stackoverflow.com/questions/9439725/javascript-how-to-detect-if-browser-window-is-scrolled-to-bottom
-    const scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-    const scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
-    const clientHeight = document.documentElement.clientHeight || window.innerHeight;
-    const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight - 200;
-
-    if (scrolledToBottom) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
       this.props.fetchArticles(true)
     }
   }
@@ -34,12 +29,13 @@ class NewsIndex extends Component {
     //get an object and make it an array
     return _.map(this.props.news , q => {
       return(
-        <div key={q.id}>
+
+        <div key={q.id} className="text-center">
         <Link to={`/single-news/${q.id}`} >
         <h1>{q.fields.headline}</h1>
         </Link>
           <h2>{q.sectionName}</h2>
-          <img src={q.fields.thumbnail} className="img-responsive" alt="" />
+          <img src={q.fields.thumbnail} className="img-responsive center-block" alt="" />
           <hr/>
         </div>
       )
@@ -58,7 +54,6 @@ class NewsIndex extends Component {
 }
 
 function mapStateToProps(news){
-  console.log(news)
   return news
 }
 
