@@ -11,7 +11,7 @@ class NewsIndex extends Component {
     const context = this
     window.addEventListener('scroll', this.handleOnScroll.bind(context));
     this.props.fetchArticles()
-    setInterval( () => this.props.fetchArticles(), 10000 );
+    setInterval( () => this.props.fetchArticles(), 30000 );
   }
 
   componentWillUnmount() {
